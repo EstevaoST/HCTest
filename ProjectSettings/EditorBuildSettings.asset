@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AdScreen.unity
     guid: d83546b862606f34a96e1ddc7c34c625
+  - enabled: 1
+    path: Assets/Scenes/StatsScreen.unity
+    guid: 75c50adc8e57acc4cbec9231bae9a0bb
   m_configObjects: {}

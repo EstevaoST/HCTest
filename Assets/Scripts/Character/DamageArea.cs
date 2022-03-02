@@ -11,6 +11,8 @@ public class DamageArea : MonoBehaviour
     public float duration = 0.1f;
     private Collider2D[] colliders = null;
 
+    public System.Action<bool> OnHit = null;
+
     // Properties
     public CharacterLayer CharacterLayer
     {
@@ -81,6 +83,7 @@ public class DamageArea : MonoBehaviour
         {
             h?.Damaged(damage);
             h?.Knockbacked(knockback);
+            OnHit?.Invoke(h?.Alive ?? false);
         }
     }
 }

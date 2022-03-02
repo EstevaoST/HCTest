@@ -26,6 +26,9 @@ public class GameCharacter : Hittable
     private Rigidbody2D rg;
     private Animator anim;
 
+    // Events
+    public System.Action OnKill = null;
+
     // Constants
     private const float SNAP_TO_GROUND_FORCE = 5;
     private const float GRAVITY_MULTIPLIER = 4;
@@ -162,5 +165,12 @@ public class GameCharacter : Hittable
         spawn.transform.RotateAround(transform.position, transform.up, transform.rotation.eulerAngles.y);
 
         spawn.enabled = true;
+        spawn.OnHit += DamageDealt;
+    }
+
+    private void DamageDealt(bool killed)
+    {
+        if (killed)
+            OnKill?.Invoke();
     }
 }
